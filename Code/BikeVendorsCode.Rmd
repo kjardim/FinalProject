@@ -1,0 +1,37 @@
+---
+title: 'Exploratory Data Analysis: Bike Vendors'
+author: "Katherin Jardim Rodrigues"
+date: "February 9, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exploratory Data Analysis: Bike Vendors
+
+##Abstract
+  
+Currently, we are living under an evolution from mass production to mass customization. The marketing and other operations are establishing as a goal to have one-to-one marketing. The main start point is predicting to which products a particular customer is going to be likely to respond to. Using as main source "R"" and the database "BikeVendor", we are going to build an analytical customer profile.  
+
+##Introduction 
+  
+We are going to create the Analytical Customer Profile, which we can evaluate the specifics customer needs according to model, price and  categories. For instance, the data base
+
+
+```{r BikeVendor}
+library(readr)
+bikevendors <- read_csv("C:/Users/Katherin/Desktop/MSC ANALYTICS/ANLY506/Assignment 3/Data/bikeVendors.csv")
+str(bikeVendors)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

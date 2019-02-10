@@ -1,0 +1,79 @@
+---
+title: "Code Portfolio"
+author: "Katherin Jardim Rodrigues"
+date: "December, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Week 5
+
+Load flat files in R with the readr package: 
+library(tidyverse)
+read.csv() #comma delimited files
+read.csv2() #reads semicolon separated files 
+read_tsv() #tabs delimited files
+read.delim() #reads in files with any delimiter
+read_fwf() #reads fixed width files
+
+"\n" is a convenient shortcut for adding a new line.
+
+**What function would you use to read a file where fields were separated with "|"?**
+
+```{r Load Data, eval = "FALSE"}
+library(tidyverse)
+read_delim(file, delim = "|")
+```
+
+**Apart from file, skip, and comment, what other arguments do read_csv() and read_tsv() have in common?**
+
+-   `col_names` and `col_types`
+-   `locale` determine if "." or "," is used as a decimal mark.
+-   `na` and `quoted_na` missing values
+-   `trim_ws` trims whitespace 
+-   `n_max` rows to read
+-   `guess_max` Maximum number of records to use for guessing column types
+-   `progress` Display a progress bar? By default it will only display in an interactive session and not while knitting a document. The display is updated every 50,000 values and will only display if estimated reading time is 5 seconds or more. The automatic progress bar can be disabled by setting option readr.show_progress to FALSE.
+
+Reference -> https://readr.tidyverse.org/reference/read_delim.html
+
+**What are the most important arguments to read_fwf()?**
+col_positions	
+Column positions, as created by fwf_empty(), fwf_widths() or fwf_positions().
+
+**Sometimes strings in a CSV file contain commas. To prevent them from causing problems they need to be surrounded by a quoting character, like " or '. By convention, read_csv() assumes that the quoting character will be ", and if you want to change it you'll need to use read_delim() instead. What arguments do you need to specify to read the following text into a data frame? **
+```
+"x,y\n1,'a,b'"
+```
+x <- "x,y\n1,'a,b'"
+read_csv(x, quote = "'")
+
+**Identify what is wrong with each of the following inline CSV files. What happens when you run the code?**
+
+read_csv("a,b\n1,2,3\n4,5,6") #The first row is missing a value
+read_csv("a,b,c\n1,2\n1,2,3,4") #The third column is missing a value
+read_csv("a,b\n\"1") #The second column is missing a value
+read_csv("a,b\n1,2\na,b") #create character table
+read_csv("a;b\n1;3") #the values have semicolons instead of comma
+
+**What are the most important arguments to locale()?**
+-   date and time formats: `date_names`, `date_format`, and `time_format`
+-   time zone: `tz`
+-   numbers: `decimal_mark`, `grouping_mark`
+-   encoding: `encoding`
+
+**What happens if you try and set decimal_mark and grouping_mark to the same character? What happens to the default value of grouping_mark when you set decimal_mark to ","? What happens to the default value of decimal_mark when you set the grouping_mark to "."?**
+1. It's going to generate an error
+2. The grouping mark will be period `"."`
+3. The decimal mark will be a comma
+
+
+
+
+
+
+
+
