@@ -10,10 +10,10 @@ We are going to create the Analytic Customer Profile, which we can evaluate the 
 
 ###Data Characteristics:
 
-Dataset: Bikevendors.csv from Moodle - Harrisburg University
-Row number: 97
-Column number: 35
-4 columns: character
-1 column: integer
-30 columns: numerical 
-No missing data
+Dataset: Bikevendors.csv from Moodle - Harrisburg University  
+Row number: 97  
+Column number: 35  
+4 columns: character  
+1 column: integer  
+30 columns: numerical   
+No missing data  
