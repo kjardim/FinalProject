@@ -43,6 +43,7 @@ bikevendors[!complete.cases(bikevendors),]
 ```{r figures, echo=True}
 boxplot.prices <- ggplot(data = bikevendors, mapping = aes(x = category1, y = price)) +
   geom_boxplot()
+boxplot.prices
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
