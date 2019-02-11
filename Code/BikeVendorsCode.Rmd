@@ -13,25 +13,36 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ##Abstract
   
-Currently, we are living under an evolution from mass production to mass customization. The marketing and other operations are establishing as a goal to have one-to-one marketing. The main start point is predicting to which products a particular customer is going to be likely to respond to. Using as main source "R"" and the database "BikeVendor", we are going to build an analytical customer profile.  
+Currently, we are living under an evolution from mass production to mass customization. The marketing and other operations are establishing as a goal to have one-to-one marketing. The main start point is predicting to which products a particular customer is going to be likely to respond to. Using as main source "R"" and the database "BikeVendor", we are going to build an analytic customer profile.  
 
 ##Introduction 
   
-We are going to create the Analytical Customer Profile, which we can evaluate the specifics customer needs according to model, price and  categories. For instance, the data base
+We are going to create the Analytic Customer Profile, which we can evaluate the specifics customer needs according to bike model, price and  categories. 
+
+###Data Characteristics:
 
 
-```{r BikeVendor}
+```{r libraries, error=FALSE, warning=FALSE}
 library(readr)
-bikevendors <- read_csv("C:/Users/Katherin/Desktop/MSC ANALYTICS/ANLY506/Assignment 3/Data/bikeVendors.csv")
-str(bikeVendors)
+library(tidyverse)
+library(httr)
+library(RCurl)
 ```
 
-## Including Plots
+```{r Data load, error=FALSE}
+bikevendors <- read_csv("C:/Users/Katherin/Desktop/MSC ANALYTICS/ANLY506/FinalProject/Data/bikeVendors.csv")
+summary(bikevendors)
+rowSums(is.na(bikevendors))
+colSums(is.na(bikevendors))
+bikevendors[!complete.cases(bikevendors),]
+```
 
-You can also embed plots, for example:
+## Including Figures
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+
+```{r figures, echo=True}
+boxplot.prices <- ggplot(data = bikevendors, mapping = aes(x = category1, y = price)) +
+  geom_boxplot()
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
